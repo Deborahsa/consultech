@@ -10,4 +10,14 @@ class UsuarioController extends Controller {
         return view('usuario.cadastroUsuario');
     }
 
+    public function realizar_cadastro(){
+        
+        return view('usuario.cadastroUsuario');
+    }
+
+    public function excluir(){
+        
+        return view('usuario.cadastroUsuario');
+    }
+
 }

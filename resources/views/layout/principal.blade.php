@@ -12,6 +12,10 @@
         .menu{
             border-radius: 0;
         }
+        .pad-left{
+            padding-left: 0;
+        }
+
     </style>
 </head>
 <body>
