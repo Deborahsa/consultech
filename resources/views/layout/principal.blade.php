@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -29,7 +30,7 @@
                 <li class="active dropdown"><a href="#"  class="dropdown-toggle" data-toggle="dropdown">Cadastro <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Funcionários</a></li>
-                        <li><a href="#">Usuários</a></li>
+                        <li><a href="/NovoUsuario">Usuários</a></li>
                         <li><a href="#">Pacientes</a></li>
                     </ul>
                 </li>

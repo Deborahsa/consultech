@@ -12,8 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('index');
+});
+Route::get('/index', function(){
+    return view('index');
 });
 
 Route::get('/login', 'LoginController@login');
+
+Route::post('/logar', 'LoginController@logar');
+
 Route::get('/NovoUsuario', 'UsuarioController@cadastro');
+
+Route::post('/NovoUsuario', 'UsuarioController@realizar_cadastro')->name('realizar_cadastro');

@@ -3,7 +3,8 @@
 <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
 
-        <form action="">
+        <form action="{{Route('realizar_cadastro')}}" method="post">
+        {{ csrf_field() }}
             <fieldset>
                 <legend>Cadastro de Usuario</legend>    
                 <div class="col-sm-6 pad-left">

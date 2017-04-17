@@ -9,13 +9,7 @@
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/app.js"></script>
     <style>
-        .menu{
-            border-radius: 0;
-        }
-        .pad-left{
-            padding-left: 0;
-            padding-right: 0;
-        }
+
         body{
         }
         .login{
@@ -30,11 +24,13 @@
 
     <div class="container">
         <div class="row">
+            <?php if (isset($erro)) { echo $erro;}?>
             <div class="col-sm-4 col-sm-offset-4 login">
-                <form action="">
-
+                <form action="/logar" method="post">
+                    
                     <h1 class="text-center">Logo</h1>
                     <h3 class="text-center">Clínica Med Saúde</h3>
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}">
                     <div class="form-group col-sm-10 col-sm-offset-1">
                         <input type="text" name="login" class="form-control input-sm" placeholder="Login" required>
                     </div>
