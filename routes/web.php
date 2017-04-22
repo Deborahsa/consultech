@@ -22,6 +22,8 @@ Route::get('/login', 'LoginController@login');
 
 Route::post('/logar', 'LoginController@logar');
 
-Route::get('/NovoUsuario', 'UsuarioController@cadastro');
+Route::get('/usuarios', 'UsuarioController@cadastro');
 
-Route::post('/NovoUsuario', 'UsuarioController@realizar_cadastro')->name('realizar_cadastro');
+Route::post('/usuarios/novo', 'UsuarioController@realizar_cadastro')->name('realizar_cadastro');
+
+Route::get('/usuarios/excluir', 'UsuarioController@excluir')->name('excluir_usuario');

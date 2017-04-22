@@ -6,15 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Listagem</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/sweetalert.css">
+    
+
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/app.js"></script>
+    <script src="/js/jquery-ui.min.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
+    
     <style>
         .menu{
             border-radius: 0;
         }
         .pad-left{
             padding-left: 0;
+        }
+
+        .tb_usuarios{
+            height:400px;
+            background-color: white;
+            border-radius: 5px;
+            overflow:auto;
         }
 
     </style>
@@ -30,7 +44,7 @@
                 <li class="active dropdown"><a href="#"  class="dropdown-toggle" data-toggle="dropdown">Cadastro <i class="fa fa-caret-down" aria-hidden="true"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Funcionários</a></li>
-                        <li><a href="/NovoUsuario">Usuários</a></li>
+                        <li><a href="/usuarios">Usuários</a></li>
                         <li><a href="#">Pacientes</a></li>
                     </ul>
                 </li>
