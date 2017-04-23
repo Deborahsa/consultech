@@ -27,3 +27,10 @@ Route::get('/usuarios', 'UsuarioController@cadastro');
 Route::post('/usuarios/novo', 'UsuarioController@realizar_cadastro')->name('realizar_cadastro');
 
 Route::get('/usuarios/excluir', 'UsuarioController@excluir')->name('excluir_usuario');
+
+//funcionarios
+Route::get('/funcionarios', 'FuncionarioController@funcionario');
+
+Route::post('/funcionarios/novo', 'FuncionarioController@realizar_cadastro')->name('cadastro_funcionario');
+
+Route::get('/funcionarios/excluir', 'FuncionarioController@excluir')->name('excluir_funcionario');

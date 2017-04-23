@@ -1,15 +1,17 @@
 @extends('layout.principal')
 @section('conteudo')
-<divclass="row">
+<div class="row">
+<form action="/usuarios">
+    
+    <div class="form-group col-sm-6 ">
+        <input type="text" name="busca" class="form-control input-sm" placeholder="Pesquisa por nome">
+    </div>
+    <div class="col-sm-6">
+        <button type="submit" class="btn btn-primary btn-sm">Buscar <i class="fa fa-search" aria-hidden="true"></i></button>
+        <button type="button" class="btn btn-warning btn-sm pull-right" id="novo_user" data-toggle="modal" data-target="#modal_cadastro">Novo</button>
+    </div>
 
-<div class="form-group col-sm-6 ">
-    <input type="text" class="form-control input-sm" placeholder="Pesquisa por nome">
-</div>
-<div class="col-sm-6">
-    <button class="btn btn-primary btn-sm">Buscar <i class="fa fa-search" aria-hidden="true"></i></button></label>
-    <button class="btn btn-warning btn-sm pull-right" id="novo_user" data-toggle="modal" data-target="#modal_cadastro">Novo</button>
-</div>
-
+</form>
 <div class="col-sm-12 tb_usuarios">
     
     <h3>Usuarios</h3>
@@ -31,7 +33,7 @@
                     <th>{{$u->login}}</th>
                     <th>{{$u->senha}}</th>
                     <th>
-                        <a href="javascrip:void(0)" class="btn btn-warning btn-xs editar" usuario="{{$u->id_usuario}} " id_funcionario="{{$u->id_funcionario}}" data="{{$u->data}}" nome="{{$u->nome}}" login="{{$u->login}}" senha="{{$u->senha}}" ativo="{{$u->ativo}}" funcao="{{$u->funcao}}">
+                        <a href="javascrip:void(0)" class="btn btn-warning btn-xs editar_user" usuario="{{$u->id_usuario}} " id_funcionario="{{$u->id_funcionario}}" data="{{$u->data}}" nome="{{$u->nome}}" login="{{$u->login}}" senha="{{$u->senha}}" ativo="{{$u->ativo}}" funcao="{{$u->funcao}}">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </a>
                         <a href="{{route('excluir_usuario')}}?id_usuario={{$u->id_usuario}}" class="btn btn-danger btn-xs delete">
@@ -193,96 +195,4 @@
 </div> <!-- fim editar cadastro -->
 
 
-<script>
-$(document).ready(function(){
-    $(".editar").click(function(){
-        var id_usuario      = $(this).attr("usuario");
-        var id_funcionario  = $(this).attr("id_funcionario");
-        var data            = $(this).attr("data");
-        var nome            = $(this).attr("nome");
-        var login           = $(this).attr("login");
-        var senha           = $(this).attr("senha");
-        var funcao          = $(this).attr("funcao");
-        var ativo           = $(this).attr("ativo");
-
-        //
-        $("#edt_id_u").val(id_usuario);
-        $("#edt_fun").val(id_funcionario);
-        $("#edt_data").val(data);
-        $("#edt_nome").val(nome);
-        $("#edt_funcao").val(funcao);
-        $("#edt_login").val(login);
-        $("#edt_senha").val(senha);
-
-        if (ativo == 1) {
-            $("#edt_ativo").attr("checked", true);                    
-        } else {
-            $("#edt_inativo").attr("checked", true);
-        }
-        $('#modal_editar').modal('show'); 
-    });
-
-    // $(".delete").click(function() {
-    //         $(location).attr('href',$(this).attr("urlattr"));
-    //     swal({
-    //         title: "Are you sure?",
-    //         text: "You will not be able to recover this imaginary file!",
-    //         type: "warning",
-    //         showCancelButton: true,
-    //         confirmButtonColor: "#DD6B55",
-    //         confirmButtonText: "Yes, delete it!",
-    //         closeOnConfirm: false
-    //     },
-    //     function(){
-    //         swal("Deleted!", "Your imaginary file has been deleted.", "success");
-    //     });
-    // });
-
-
-    // $(".delete").on("click", function(){
-
-    //     swal({
-    //         title: "Are you sure?",
-    //         text: "You will not be able to recover this imaginary file!",
-    //         type: "warning",
-    //         showCancelButton: true,
-    //         confirmButtonColor: "#DD6B55",
-    //         confirmButtonText: "Yes, delete it!",
-    //         closeOnConfirm: false
-    //     },
-    //     function(){
-    //         swal("Deleted!", "Your imaginary file has been deleted.", "success");
-    //         $(location).attr('href',$(this).attr("urlattr"));
-    //     });
-    // });
-
-
-});
-
-    
-</script>
-
-
-<script>
-    $(document).ready(function(){
-        //reseta o formulario de cadastro de usuario
-        $("#novo_user").click(function(){
-            $("#user_cadastro")[0].reset();
-        });
-
-        //datepicker no formato brasileiro
-        $(".data").datepicker({
-            dateFormat: 'dd/mm/yy',
-            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-            nextText: 'Próximo',
-            prevText: 'Anterior'
-        });
-
-    });
-
-</script>
 @stop

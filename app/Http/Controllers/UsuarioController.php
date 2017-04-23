@@ -5,8 +5,18 @@ use Request;
 
 class UsuarioController extends Controller {
 
+
     public function cadastro(){
-        $usuarios = DB::select('select * from usuario order by nome');
+
+        $busca = Request::input('busca');
+
+        if (!empty($busca)) {
+            $where = "where nome LIKE '%".$busca."%'";
+        }else {
+            $where = '';
+        }
+
+        $usuarios = DB::select("select * from usuario ".$where." order by nome");
         return view('usuario.cadastroUsuario')->with('usuarios', $usuarios);
     }
 
