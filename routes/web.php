@@ -34,3 +34,6 @@ Route::get('/funcionarios', 'FuncionarioController@funcionario');
 Route::post('/funcionarios/novo', 'FuncionarioController@realizar_cadastro')->name('cadastro_funcionario');
 
 Route::get('/funcionarios/excluir', 'FuncionarioController@excluir')->name('excluir_funcionario');
+
+//Paciente
+Route::get('/pacientes', 'PacienteController@paciente');
