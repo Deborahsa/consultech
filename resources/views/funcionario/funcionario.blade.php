@@ -97,7 +97,7 @@
                     </div>
 
                     <div class="col-sm-4 pad-left">
-                        <label for="bairro">Beirro: </label>
+                        <label for="bairro">Bairro: </label>
                         <input type="text" name="bairro" class="form-control input-sm" required>
                     </div>
 
@@ -205,7 +205,7 @@
                     </div>
 
                     <div class="col-sm-4 pad-left">
-                        <label for="bairro">Beirro: </label>
+                        <label for="bairro">Bairro: </label>
                         <input type="text" name="bairro" id="edt_bairro" class="form-control input-sm" required>
                     </div>
 
