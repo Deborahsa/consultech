@@ -31,7 +31,7 @@
                 Não implementar o php na tela de cadastro
                 JOÃO
             -->
-            
+
             <?php foreach ($funcionarios as $key => $f): ?>
                     <tr>
                         <th>{{$f->nome}}</th>
@@ -83,7 +83,11 @@
                 <h4 class="modal-title">Cadastrar Funcionario</h4>
             </div>
             <div class="modal-body">
-
+                    <!--
+                        João-> deixar as ACTION em branco
+                            -mudar id em paciente para pac_cadastro
+                            -mudar as informções da tela de cadastro de usuario
+                    -->
                 <form action="{{Route('cadastro_funcionario')}}" id="fun_cadastro" method="post">
                     {{ csrf_field() }}
                     <div class="col-sm-8 pad-left">
