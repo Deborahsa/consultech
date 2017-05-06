@@ -45,7 +45,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/funcionarios">Funcionários</a></li>
                         <li><a href="/usuarios">Usuários</a></li>
-                        <li><a href="#">Pacientes</a></li>
+                        <li><a href="/pacientes">Pacientes</a></li>
                     </ul>
                 </li>
 

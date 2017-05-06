@@ -5,8 +5,8 @@ use Request;
 
 class PacienteController extends Controller
 {
-    public function funcionario(){
-
+    public function paciente(){
+    	return view('pacientes.paciente');
     }
 
     public function realizar_cadastro(){

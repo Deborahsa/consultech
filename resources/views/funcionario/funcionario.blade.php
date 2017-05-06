@@ -27,6 +27,11 @@
                 </tr>
             </thead>
             <tbody>
+            <!--
+                Não implementar o php na tela de cadastro
+                JOÃO
+            -->
+            
             <?php foreach ($funcionarios as $key => $f): ?>
                     <tr>
                         <th>{{$f->nome}}</th>
