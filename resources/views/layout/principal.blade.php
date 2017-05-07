@@ -38,7 +38,7 @@
     <nav class="navbar navbar-inverse menu">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">ConsulTech</a>
+                <a class="navbar-brand" href="/">ConsulTech</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="active dropdown"><a href="#"  class="dropdown-toggle" data-toggle="dropdown">Cadastro <i class="fa fa-caret-down" aria-hidden="true"></i></a>
