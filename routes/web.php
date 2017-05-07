@@ -30,13 +30,14 @@ Route::get('/usuarios/excluir', 'UsuarioController@excluir')->name('excluir_usua
 
 //funcionarios
 Route::get('/funcionarios', 'FuncionarioController@funcionario');
-
 Route::post('/funcionarios/novo', 'FuncionarioController@realizar_cadastro')->name('cadastro_funcionario');
-
 Route::get('/funcionarios/excluir', 'FuncionarioController@excluir')->name('excluir_funcionario');
 
-//Paciente
+//Paciente 
 Route::get('/pacientes', 'PacienteController@paciente');
+Route::post('/pacientes/novo', 'PacienteController@realizar_cadastro')->name('cadastro_paciente');
+Route::get('/pacientes/excluir', 'PacienteController@excluir')->name('excluir_paciente');
+
 //Função->Cargo do Funcionário
 Route::get('/funcao','FuncaoController@funcao');
 //Especialidades

@@ -91,7 +91,7 @@
 
 
     <script>
-$(document).ready(function(){
+        $(document).ready(function(){
 
         //reseta o formulario de cadastro de usuario
         function reseta_usuario(){
@@ -207,6 +207,58 @@ $(document).ready(function(){
         $('#modal_cadastro').modal('show'); 
     });
 
+
+    $(".editar_paci").click(function() {
+
+        var id_paciente = $(this).attr('id_paciente');
+        var nome_paciente = $(this).attr("nome_paciente");
+        var dt_nascimento = $(this).attr('dt_nascimento');
+        var endereco = $(this).attr('endereco');
+        var bairro = $(this).attr('bairro');
+        var cidade = $(this).attr('cidade');
+        var uf = $(this).attr('uf');
+        var nome_mae = $(this).attr('nome_mae');
+        var nome_pai = $(this).attr('nome_pai');
+        var telefone = $(this).attr('telefone');
+        var celular = $(this).attr('celular');
+        var cpf = $(this).attr('cpf');
+        var rg = $(this).attr('rg');
+        var orgao_emissor = $(this).attr('orgao_emissor');
+        var dt_emissao = $(this).attr('dt_emissao');
+        var sexo = $(this).attr('sexo');
+        var estado_civil = $(this).attr('estado_civil');
+        var dt_cadastro = $(this).attr('dt_cadastro');
+
+
+
+        $("#id_paciente").val(id_paciente); 
+        $("#nome_paciente").val(nome_paciente); 
+        $("#dt_nascimento").val(dt_nascimento); 
+        $("#endereco").val(endereco); 
+        $("#bairro").val(bairro); 
+        $("#cidade").val(cidade); 
+        $("#uf").val(uf); 
+        $("#nome_mae").val(nome_mae); 
+        $("#nome_pai").val(nome_pai);  
+        $("#telefone").val(telefone); 
+        $("#celular").val(celular); 
+        $("#cpf").val(cpf); 
+        $("#rg").val(rg); 
+        $("#orgao_emissor").val(orgao_emissor); 
+        $("#dt_emissao").val(dt_emissao); 
+        $("#estado_civil").val(estado_civil); 
+        $("#dt_cadastro").val(dt_cadastro);
+
+
+        if (sexo == "m") {
+            $("#m").attr("checked", true);                    
+        } else {
+            $("#f").attr("checked", true);
+        }
+        
+        $('#modal_cadastro').modal('show'); 
+
+    });
     
 
     // $(".delete").click(function() {
@@ -246,7 +298,7 @@ $(document).ready(function(){
 
 });
 
-    
+
 </script>
 </body>
 </html>

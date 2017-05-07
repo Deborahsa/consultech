@@ -80,10 +80,10 @@
                             <label for="senha">Senha: </label>
                             <input type="password" name="senha" id="senha" class="form-control input-sm" required>
                         </div>
-                        <br>
+                    
                     </div>
                     
-                    <div class="modal-footer">                        
+                    <div class="modal-footer ">                        
                         <span class="text-danger pull-left">Todos os campos são obrigatorios.</span>
                         <button type="submit" class="btn btn-primary btn-sm">Incluir</button>
                         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
