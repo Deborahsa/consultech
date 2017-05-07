@@ -122,75 +122,86 @@ $(document).ready(function(){
     $(".editar_user").click(function(){
         reseta_usuario();
 
-        var id_usuario      = $(this).attr("usuario");
+        var id_usuario      = $(this).attr("id_usuario");
         var id_funcionario  = $(this).attr("id_funcionario");
-        var data            = $(this).attr("data");
-        var nome            = $(this).attr("nome");
         var login           = $(this).attr("login");
         var senha           = $(this).attr("senha");
-        var funcao          = $(this).attr("funcao");
-        var ativo           = $(this).attr("ativo");
 
         //
-        $("#edt_id_u").val(id_usuario);
-        $("#edt_fun").val(id_funcionario);
-        $("#edt_data").val(data);
-        $("#edt_nome").val(nome);
-        $("#edt_funcao").val(funcao);
-        $("#edt_login").val(login);
-        $("#edt_senha").val(senha);
+        $("#id_usuario").val(id_usuario);
+        $("#id_funcionario").val(id_funcionario);
+        $("#login").val(login);
+        $("#senha").val(senha);
 
-        if (ativo == 1) {
-            $("#edt_ativo").attr("checked", true);                    
-        } else {
-            $("#edt_inativo").attr("checked", true);
-        }
-        $('#modal_editar').modal('show'); 
+        $('#modal_cadastro').modal('show'); 
     });
 
     $(".editar_fun").click(function(){
         reseta_funcionario();
 
-         var id_funcionario  = $(this).attr("id_funcionario");
+        // id_funcionario nome dt_nascimento cep endereco bairro cidade uf numero nome_mae nome_pai telefone celular cpf rg orga_emissor sexo estado_civil dt_adimissao id_funcao carga_horaria CRM ativo(ativo,inativo)
+
+        
+
+        var id_funcionario  = $(this).attr("id_funcionario");
         var nome            = $(this).attr("nome");
-        var data_nacimento            = $(this).attr("data_nacimento");
+        var dt_nascimento            = $(this).attr("dt_nascimento");
+        var cep            = $(this).attr("cep");
         var endereco           = $(this).attr("endereco");
         var bairro           = $(this).attr("bairro");
         var cidade          = $(this).attr("cidade");
+        var uf          = $(this).attr("uf");
         var numero           = $(this).attr("numero");
+        var nome_mae           = $(this).attr("nome_mae");
+        var nome_pai           = $(this).attr("nome_pai");
         var telefone           = $(this).attr("telefone");
+        var celular           = $(this).attr("celular");
         var cpf           = $(this).attr("cpf");
         var rg          = $(this).attr("rg");
-        var admissao         = $(this).attr("admissao");
-        var funcao          = $(this).attr("funcao");
-        var hora_trabalho          = $(this).attr("hora_trabalho");
-        var crm           = $(this).attr("crm");
-        var ativo           = $(this).attr("situcao");
+        var orga_emissor         = $(this).attr("orga_emissor");
+        var sexo         = $(this).attr("sexo");
+        var estado_civil         = $(this).attr("estado_civil");
+        var dt_adimissao         = $(this).attr("dt_adimissao");
+        var id_funcao          = $(this).attr("id_funcao");
+        var carga_horaria          = $(this).attr("carga_horaria");
+        var CRM           = $(this).attr("CRM");
+        var id_especialidade           = $(this).attr("id_especialidade");
+        var ativo           = $(this).attr("ativo");
+        
+
+        
+        $("#id_funcionario").val(id_funcionario);
+        $("#nome").val(nome);
+        $("#dt_nascimento").val(dt_nascimento);
+        $("#cep").val(cep);
+        $("#endereco").val(endereco);
+        $("#bairro").val(bairro);
+        $("#cidade").val(cidade);
+        $("#uf").val(uf);
+        $("#numero").val(numero);        
+        $("#nome_mae").val(nome_mae);
+        $("#nome_pai").val(nome_pai);
+        $("#telefone").val(telefone);
+        $("#celular").val(celular);
+        $("#cpf").val(cpf);
+        $("#rg").val(rg);
+        $("#orga_emissor").val(orga_emissor);
+        $("#sexo").val(sexo);
+        $("#estado_civil").val(estado_civil);
+        $("#dt_adimissao").val(dt_adimissao);
+        $("#id_funcao").val(id_funcao);
+        $("#carga_horaria").val(carga_horaria);
+        $("#CRM").val(CRM);
+        $("#id_especialidade").val(id_especialidade);
 
 
-        //
-        $("#edt_id_funcionario").val(id_funcionario);
-        $("#edt_nome").val(nome);
-        $("#edt_data_nacimento").val(data_nacimento);
-        $("#edt_endereco").val(endereco);
-        $("#edt_bairro").val(bairro);
-        $("#edt_cidade").val(cidade);
-        $("#edt_numero").val(numero);
-        $("#edt_telefone").val(telefone);
-        $("#edt_cpf").val(cpf);
-        $("#edt_rg").val(rg);
-        $("#edt_admissao").val(admissao);
-        $("#edt_funcao").val(funcao);
-        $("#edt_hora_trabalho").val(hora_trabalho);
-        $("#edt_crm").val(crm);
-
-        if (ativo == 1) {
-            $("#edt_ativo").attr("checked", true);                    
+        if (ativo == 0) {
+            $("#ativo").attr("checked", true);                    
         } else {
-            $("#edt_inativo").attr("checked", true);
+            $("#inativo").attr("checked", true);
         }
         
-        $('#modal_editar').modal('show'); 
+        $('#modal_cadastro').modal('show'); 
     });
 
     

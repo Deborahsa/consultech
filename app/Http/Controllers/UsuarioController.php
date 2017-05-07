@@ -11,32 +11,29 @@ class UsuarioController extends Controller {
         $busca = Request::input('busca');
 
         if (!empty($busca)) {
-            $where = "where nome LIKE '%".$busca."%'";
+            $where = "where f.nome LIKE '%".$busca."%'";
         }else {
             $where = '';
         }
 
-        $usuarios = DB::select("select * from usuario ".$where." order by nome");
-        return view('usuario.cadastroUsuario')->with('usuarios', $usuarios);
+        $funcionarios = DB::select("SELECT `id_funcionario`,`nome` FROM `funcionario` WHERE `ativo` = 0  order by nome");
+
+        $usuarios = DB::select("SELECT u.*, f.nome, f.id_funcao FROM `usuario` as u JOIN funcionario as f on u.id_funcionario = f.id_funcionario ".$where." order by f.nome");
+        return view('usuario.cadastroUsuario')->with(array('usuarios' => $usuarios, 'funcionarios' => $funcionarios));
     }
 
     public function realizar_cadastro(){
-        $funcionario = Request::input('funcionario');
-        $data = Request::input('data');
-        $nome = Request::input('nome');
-        $funcao = Request::input('funcao');
+        $id_usuario = Request::input('id_usuario');
+        $id_funcionario = Request::input('id_funcionario');
         $login = Request::input('login');
         $senha = Request::input('senha');
-        $ativo = Request::input('situcao');
 
-        $id_usuario = Request::input('id_usuario');
 
         if (empty($id_usuario)) {
-            DB::insert('insert into usuario (`id_funcionario`, `data`, `nome`, `funcao`, `login`, `senha`, `ativo`) 
-                values (?, ?, ?, ?, ?, ?, ?)', array($funcionario, $data, $nome, $funcao, $login, $senha, $ativo));
+            DB::insert('INSERT INTO `usuario`(`id_funcionario`, `login`, `senha`) 
+                values (?, ?, ?)', array($id_funcionario, $login, $senha));
         }else{
-            DB::update("UPDATE `usuario` SET `id_funcionario`= ".$funcionario.",`data`='".$data."',`nome`='".$nome."',
-                `login`='".$login."',`senha`='".$senha."',`ativo`=".$ativo.",`funcao`='".$funcao."' 
+            DB::update("UPDATE `usuario` SET `id_funcionario`= ".$id_funcionario.",`login`='".$login."',`senha`='".$senha."' 
                 WHERE id_usuario = ".$id_usuario."");            
         }
         return redirect('/usuarios');
