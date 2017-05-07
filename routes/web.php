@@ -37,3 +37,9 @@ Route::get('/funcionarios/excluir', 'FuncionarioController@excluir')->name('excl
 
 //Paciente
 Route::get('/pacientes', 'PacienteController@paciente');
+//Função->Cargo do Funcionário
+Route::get('/funcao','FuncaoController@funcao');
+//Especialidades
+Route::get('/especialidade','EspecialidadeController@especialidade');
+//Salas
+Route::get('/sala','SalaController@sala');

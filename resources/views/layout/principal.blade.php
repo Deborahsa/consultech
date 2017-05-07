@@ -46,6 +46,9 @@
                         <li><a href="/funcionarios">Funcionários</a></li>
                         <li><a href="/usuarios">Usuários</a></li>
                         <li><a href="/pacientes">Pacientes</a></li>
+                        <li><a href="/funcao">Funções</a></li>
+                        <li><a href="/especialidade">Especialidades</a></li>
+                        <li><a href="/sala">Salas</a></li>
                     </ul>
                 </li>
 
