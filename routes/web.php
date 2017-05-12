@@ -39,8 +39,17 @@ Route::post('/pacientes/novo', 'PacienteController@realizar_cadastro')->name('ca
 Route::get('/pacientes/excluir', 'PacienteController@excluir')->name('excluir_paciente');
 
 //Função->Cargo do Funcionário
-Route::get('/funcao','FuncaoController@funcao');
+Route::get('/funcoes','FuncaoController@funcao');
+Route::post('/funcoes/novo', 'FuncaoController@realizar_cadastro')->name('cadastro_funcao');
+Route::get('/funcoes/excluir', 'FuncaoController@excluir')->name('excluir_funcao');
+
+
 //Especialidades
-Route::get('/especialidade','EspecialidadeController@especialidade');
+Route::get('/especialidades','EspecialidadeController@especialidade');
+Route::post('/especialidades/novo', 'EspecialidadeController@realizar_cadastro')->name('cadastro_especialidade');
+Route::get('/especialidades/excluir', 'EspecialidadeController@excluir')->name('excluir_especialidade');
+
 //Salas
-Route::get('/sala','SalaController@sala');
+Route::get('/salas','SalaController@sala');
+Route::post('/salas/novo', 'SalaController@realizar_cadastro')->name('cadastro_sala');
+Route::get('/salas/excluir', 'SalaController@excluir')->name('excluir_sala');

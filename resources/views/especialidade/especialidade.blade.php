@@ -1,8 +1,8 @@
 @extends('layout.principal')
 @section('conteudo')
-
 <div class="row">
-	<form action="/especialidade">
+
+    <form action="/especialidades">
 
         <div class="form-group col-sm-6 ">
             <input type="text" name="busca" class="form-control input-sm" placeholder="Pesquisa por nome">
@@ -14,29 +14,36 @@
 
     </form>
 
-    <div class="col-sm-12 tb_usuarios">
-
-        <h3>Especialidades</h3>
-
+    <div class="col-md-12 tb_usuarios">
+        <h3>Funções</h3>
         <table class="table table-striped table-condensed">
             <thead>
                 <tr>
-                    <th style="width:15%;">Identificador</th>
-                    <th style="width:60%;">Nome</th>      
-                    <th style="width:5%;">Ações</th>
+                    <th width="10%">Identificador</th>
+                    <th width="80%">Especialidade</th>
+                    <th width="10%">Ações</th>
                 </tr>
             </thead>
             <tbody>
-            <!--
-                Não implementar o php na tela de cadastro
-                JOÃO
-            -->
+            <?php foreach ($especialidades as $e): ?>
+                <tr>
+                    <td>{{$e->id_especialidade}}</td>
+                    <td>{{$e->descricao}}</td>
+                    <td>
+                        <a href="javascrip:void(0)" class="btn btn-warning btn-xs editar_especialidade" id_especialidade="{{$e->id_especialidade}}" descricao="{{$e->descricao}}">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
 
-          
-            </tbody>
-        </table>
-
-    </div>
+                        <a href="{{route('excluir_especialidade')}}?id_especialidade={{$e->id_especialidade}}" class="btn btn-danger btn-xs delete">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+                
+            <?php endforeach ?>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 </div>
 
@@ -44,103 +51,39 @@
 
 <!-- Modal cadastro-->
 <div class="modal fade" id="modal_cadastro" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Cadastrar Especialidades</h4>
+                <h4 class="modal-title">Cadastrar Especialidade</h4>
             </div>
-            <div class="modal-body">
-                    <!--
-                        João-> deixar as ACTION em branco
-                            -mudar id em paciente para pac_cadastro
-                            -mudar as informções da tela de cadastro de usuario
-                            action="{{Route('cadastro_funcionario')}}"
-                    -->
-                <form  id="esp_cadastro" method="post">
-                	<!--O que é isso ?? - João-->
-                	<!-- Nome dos imputs igual ao das tabelas do banco -->
+            <form action="{{Route('cadastro_especialidade')}}" id="especialidade_cadastro" method="post">
+                <div class="modal-body">
+                    <div class="container-fluid">
 
-                    {{ csrf_field() }}
-                    <div class="col-sm-8 pad-left">
-                        <label for="descricao">Nome: </label>
-                        <input type="text" name="descricao" class="form-control input-sm" required>
-                    </div>                    
-                    
-                    <div class="pull-right">
-                        <button type="submit" class="btn btn-primary btn-sm">Incluir</button>
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Sair</button>
-                    </div>
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id_especialidade" id="id_especialidade">
 
-                </form>
+                        <div class="col-sm-6 pad-left">
+                            <label for="descricao">Especialidade: </label>
+                            <input type="text" name="descricao" id="descricao" class="form-control input-sm" required>
+                        </div>
 
-                <div class="form-group" style="padding-bottom: 5px;">
-                    <span class="text-danger">Todos os campos são obrigatorios.</span>
+                    </div> <!-- fim container-fluid -->
+                </div> <!-- fim modal-body -->
+
+                <div class="modal-footer ">                        
+                    <span class="text-danger pull-left">Todos os campos são obrigatorios.</span>
+                    <button type="submit" class="btn btn-primary btn-sm">Incluir</button>
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
                 </div>
+            </form>
 
-            </div>
 
         </div> <!-- fim modal content -->
 
     </div>
 </div> <!-- fim modal cadastro -->
-
-
-
-<!-- Modal editar-->
-<div class="modal fade" id="modal_editar" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Editar Especialidades</h4>
-            </div>
-            <div class="modal-body">
-
-            	<!--
-				action="{{Route('cadastro_funcionario')}}"
-				retirar action do form de editar
-            	-->
-
-             <form  id="esp_cadastro" method="post">
-                	<!--O que é isso ?? - João-->
-                	<!-- Nome dos imputs igual ao das tabelas do banco -->
-
-                    {{ csrf_field() }}
-                    <div class="col-sm-8 pad-left">
-                        <label for="descricao">Nome: </label>
-                        <input type="text" name="descricao" class="form-control input-sm" required>
-                    </div>
-
-                    
-                    <div class="pull-right">
-                        <button type="submit" class="btn btn-primary btn-sm">Incluir</button>
-                        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Sair</button>
-                    </div>
-
-                </form>
-
-                <div class="form-group" style="padding-bottom: 5px;">
-                    <span class="text-danger">Todos os campos são obrigatorios.</span>
-                </div>
-
-
-<!--limite-->
-            </div>
-
-        </div> <!-- fim modal content -->
-
-    </div>
-</div> <!-- fim editar cadastro -->
-
-
-
-</div>
-
-
-
- @stop
+@stop

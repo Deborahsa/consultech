@@ -43,7 +43,7 @@
             </tbody>
         </table>
     </div>
-</div>
+</div> <!-- fim div row -->
 
 <!-- Modal cadastro-->
 <div class="modal fade" id="modal_cadastro" role="dialog">

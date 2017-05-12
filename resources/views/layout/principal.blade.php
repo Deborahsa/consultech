@@ -46,9 +46,9 @@
                         <li><a href="/funcionarios">Funcionários</a></li>
                         <li><a href="/usuarios">Usuários</a></li>
                         <li><a href="/pacientes">Pacientes</a></li>
-                        <li><a href="/funcao">Funções</a></li>
-                        <li><a href="/especialidade">Especialidades</a></li>
-                        <li><a href="/sala">Salas</a></li>
+                        <li><a href="/funcoes">Funções</a></li>
+                        <li><a href="/especialidades">Especialidades</a></li>
+                        <li><a href="/salas">Salas</a></li>
                     </ul>
                 </li>
 
@@ -260,6 +260,32 @@
 
     });
     
+    
+    $(".editar_funcao").click(function() {
+
+        var id_funcao = $(this).attr("id_funcao");
+        var descricao = $(this).attr("descricao");
+
+        $("#id_funcao").val(id_funcao);
+        $("#descricao").val(descricao);
+
+        
+        $('#modal_cadastro').modal('show'); 
+
+    });
+
+    $(".editar_especialidade").click(function() {
+
+        var id_especialidade = $(this).attr("id_especialidade");
+        var descricao = $(this).attr("descricao");
+
+        $("#id_especialidade").val(id_especialidade);
+        $("#descricao").val(descricao);
+
+        
+        $('#modal_cadastro').modal('show'); 
+
+    });
 
     // $(".delete").click(function() {
     //         $(location).attr('href',$(this).attr("urlattr"));
