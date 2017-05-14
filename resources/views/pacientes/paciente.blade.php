@@ -92,7 +92,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Cadastrar Paciente</h4>
             </div>
-            <div class="modal-body">
+            <form action="{{Route('cadastro_paciente')}}" id="pac_cadastro" method="post">
                     <!--
                         João-> deixar as ACTION em branco
                             -mudar id em paciente para pac_cadastro
@@ -100,15 +100,15 @@
                             action="{{Route('cadastro_funcionario')}}"
 
                         -->
+                    <div class="modal-body">
                         <div class="container-fluid">
+                               <!--O que é isso ?? - João-->
+                               <!-- Nome dos imputs igual ao das tabelas do banco -->
 
-                            <form action="{{Route('cadastro_paciente')}}" id="pac_cadastro" method="post">
-                             <!--O que é isso ?? - João-->
-                             <!-- Nome dos imputs igual ao das tabelas do banco -->
+                               {{ csrf_field() }}
+                               <input type="hidden" name="id_paciente" id="id_paciente">
 
-                             {{ csrf_field() }}
-                             <input type="hidden" name="id_paciente" id="id_paciente">
-                             <div class="col-sm-8 pad-left">
+                            <div class="col-sm-8 pad-left">
                                 <label for="nome_paciente">Nome: </label>
                                 <input type="text" name="nome_paciente" id="nome_paciente" class="form-control input-sm" required>
                             </div>
@@ -205,12 +205,11 @@
                                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Sair</button>
                             </div>
 
-                        </form>
 
-                    </div>
+                        </div> <!-- fim container-fluid -->
+                    </div> <!-- fim modal-body -->
 
-
-                </div>
+                </form>
 
             </div> <!-- fim modal content -->
 

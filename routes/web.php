@@ -53,3 +53,6 @@ Route::get('/especialidades/excluir', 'EspecialidadeController@excluir')->name('
 Route::get('/salas','SalaController@sala');
 Route::post('/salas/novo', 'SalaController@realizar_cadastro')->name('cadastro_sala');
 Route::get('/salas/excluir', 'SalaController@excluir')->name('excluir_sala');
+
+//consultas
+Route::get('/consultas','ConsultaController@consulta');

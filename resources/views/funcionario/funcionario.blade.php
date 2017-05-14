@@ -72,7 +72,7 @@ $uf = array(
                             <tr>
                                 <th>{{$f->nome}}</th>
                                 <th>{{implode("/",array_reverse(explode("-",$f->dt_adimissao)))}}</th>
-                                <th>{{$f->id_funcao}}</th>
+                                <th>{{$f->descricao}}</th>
                                 <th>{{$f->carga_horaria}}</th>
                                 <th>
                                     <a href="javascrip:void(0)" class="btn btn-warning btn-xs editar_fun" 
@@ -244,16 +244,18 @@ $uf = array(
                         <div class="col-sm-4 pad-left">
                             <label for="id_funcao">Função: </label>
                             <select name="id_funcao" id="id_funcao" class="form-control input-sm">
-                                <option value="1">funcao 01</option>
-                                <option value="2">funcao 02</option>
+                        <?php foreach ($funcoes as $f): ?>
+                                <option value="{{$f->id_funcao}}">{{$f->descricao}}</option>
+                        <?php endforeach ?>
                             </select>
                         </div>
 
                         <div class="col-sm-4 pad-left">
                             <label for="id_especialidade">Especialidade: </label>
                             <select name="id_especialidade" id="id_especialidade" class="form-control input-sm">
-                                <option value="1">Especialidade 01</option>
-                                <option value="2">Especialidade 02</option>
+                        <?php foreach ($especialidades as $e): ?>
+                                <option value="{{$e->id_especialidade}}">{{$e->descricao}}</option>
+                        <?php endforeach ?>
                             </select>
                         </div>
                         

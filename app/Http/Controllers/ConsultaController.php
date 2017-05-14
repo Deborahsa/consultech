@@ -3,9 +3,9 @@ namespace consultech\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Request;
 
-class salaController extends Controller
+class ConsultaController extends Controller
 {
-    public function sala(){
+    public function consulta(){
 
 
         $busca = Request::input('busca');
@@ -16,9 +16,9 @@ class salaController extends Controller
             $where = '';
         }
 
-        $salas = DB::select("SELECT * FROM `sala` ".$where." order by id_sala");
+        $consultas = DB::select("SELECT * FROM `sala`  order by id_sala");
 
-        return view('sala.sala')->with("salas",$salas);
+        return view('consulta.consulta')->with("consultas",$consultas);
     }
 
     public function realizar_cadastro(){
@@ -31,13 +31,13 @@ class salaController extends Controller
             DB::insert('insert into sala (descricao) values (?)', array($descricao));   
         }
 
-        return redirect('/salas');
+        return redirect('/consultas');
     }
     public function excluir(){
         $id = Request::input('id_sala');
         DB::delete('delete from sala where id_sala = ?', [$id]);
 
-        return redirect('/salas');
+        return redirect('/consultas');
     }
     
 } 

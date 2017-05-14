@@ -287,6 +287,19 @@
 
     });
 
+    $(".editar_sala").click(function() {
+
+        var id_sala = $(this).attr("id_sala");
+        var descricao = $(this).attr("descricao");
+
+        $("#id_sala").val(id_sala);
+        $("#descricao").val(descricao);
+
+        
+        $('#modal_cadastro').modal('show'); 
+
+    });
+
     // $(".delete").click(function() {
     //         $(location).attr('href',$(this).attr("urlattr"));
     //     swal({

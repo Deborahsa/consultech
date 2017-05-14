@@ -9,13 +9,16 @@ class funcionarioController extends Controller
         $busca = Request::input('busca');
 
         if (!empty($busca)) {
-            $where = "where nome LIKE '%".$busca."%'";
+            $where = "where f.nome LIKE '%".$busca."%'";
         }else {
             $where = '';
         }
 
-        $funcionarios = DB::select("select * from funcionario ".$where." order by nome");
-        return view('funcionario.funcionario')->with('funcionarios', $funcionarios);
+        $funcionarios = DB::select("select f.*, fc.descricao from funcionario as f join funcao as fc on f.id_funcao = fc.id_funcao ".$where." order by f.nome");
+        $funcoes = DB::select("select * from funcao ".$where." order by descricao");
+        $especialidades = DB::select("select * from especialidade ".$where." order by descricao");
+
+        return view('funcionario.funcionario')->with(array('funcionarios' =>$funcionarios, 'funcoes' => $funcoes, 'especialidades' =>$especialidades));
 
     }
 
